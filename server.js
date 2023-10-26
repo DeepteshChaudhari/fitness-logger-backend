@@ -1,8 +1,9 @@
-import express from 'express'
-import path from "path"
-import routes from './routes';
-const db = require("./config/connection");
-const PORT = process.env.PORT || 3001;
+import express from 'express';
+import path from 'path';
+const routes = require("./routes");
+import routes from './routes/index.js'
+import mongoose from "mongoose";
+import { PORT, mongoDBURL } from "./config/connection";
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
@@ -19,8 +20,13 @@ if (process.env.NODE_ENV === "production") {
 
 app.use(routes);
 
-db.once("open", () => {
-  app.listen(PORT, () => {
-    console.log(`API server running on port ${PORT}!`);
-  });
-});
+mongoose.connect(mongoDBURL)
+  .then(() => {
+    console.log('app connected to database')
+    app.listen(PORT, () => {
+      console.log(`app is listening to ${PORT}`)
+    })
+  })
+  .catch((error) => {
+    console.log(error)
+  })
