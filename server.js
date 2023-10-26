@@ -1,6 +1,6 @@
 import express from 'express'
 import path from "path"
-const routes = require("./routes");
+import routes from './routes';
 const db = require("./config/connection");
 
 const PORT = process.env.PORT || 3001;
