@@ -28,9 +28,9 @@ const authMiddleware = (req, res, next) => {
   // send to next endpoint
   next();
 }
-const signToken = ({ username, email, _id }) => {
+export const signToken = ({ username, email, _id }) => {
   const payload = { username, email, _id };
 
   return Jwt.sign({ data: payload }, secret, { expiresIn: expiration });
 }
-export default { signToken, authMiddleware }
+export default authMiddleware
