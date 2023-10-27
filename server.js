@@ -20,13 +20,9 @@ app.get('*', (req, res) => {
 
 app.use(routes);
 mongoose.set('strictQuery', true);
-mongoose.connect(mongoDBURL)
-  .then(() => {
-    console.log('app connected to database')
-    app.listen(PORT, () => {
-      console.log(`app is listening to ${PORT}`)
-    })
-  })
-  .catch((error) => {
-    console.log(error)
-  })
+mongoose.connect(DB, {
+  useUnifiedTopology: true,
+  useNewUrlParser: true
+}).then(() => console.log("DataBase Connected")).catch((err) => {
+  console.log(err);
+})
