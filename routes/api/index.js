@@ -5,6 +5,6 @@ import router from "../api/exercise-routes.js";
 import userRouter from "../api/user-routes.js";
 
 router.use("/user", userRouter);
-router.use("/exercise", exerciseRoutes);
+router.use("/exercise", router);
 
 export default apiRoutes;
