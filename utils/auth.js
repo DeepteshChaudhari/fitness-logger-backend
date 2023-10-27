@@ -33,5 +33,4 @@ const signToken = ({ username, email, _id }) => {
 
   return Jwt.sign({ data: payload }, secret, { expiresIn: expiration });
 }
-export default signToken
-export default authMiddleware
+export default { signToken, authMiddleware }
