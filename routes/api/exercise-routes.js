@@ -7,16 +7,16 @@ const {
   createResistance,
   getResistanceById,
   deleteResistance,
-} = require("../../controllers/resistance-controller");
+} = require("../../controllers/resistance-controller.js");
 
 const {
   createCardio,
   getCardioById,
   deleteCardio,
-} = require("../../controllers/cardio-controller");
+} = require("../../controllers/cardio-controller.js");
 
 // import middleware
-const { authMiddleware } = require('../../utils/auth');
+const { authMiddleware } = require('../../utils/auth.js');
 
 // on insominia: 
 // choose Auth bearer, add response-body attribute and edit tag

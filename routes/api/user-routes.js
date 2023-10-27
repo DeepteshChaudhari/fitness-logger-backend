@@ -1,9 +1,9 @@
-const { createUser, login, getSingleUser } = require("../../controllers/user-controller");
+const { createUser, login, getSingleUser } = require("../../controllers/user-controller.js");
 import express from "express";
 const userRoutes = express.Router()
 
 // import middleware
-const { authMiddleware } = require("../../utils/auth");
+const { authMiddleware } = require("../../utils/auth.js");
 
 // put authMiddleware anywhere we need to send a token for verification of user
 // /api/user for user signup
