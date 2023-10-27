@@ -1,4 +1,5 @@
-import { Cardio, User } from '../models/index.js'
+import { Cardio } from '../models/Cardio.js';
+import { User } from '../models/User.js';
 
 const cardioController = {
   // create cardio
