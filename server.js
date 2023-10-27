@@ -20,7 +20,7 @@ app.get('*', (req, res) => {
 
 app.use(routes);
 mongoose.set('strictQuery', true);
-mongoose.connect(DB, {
+mongoose.connect(mongoDBURL, {
   useUnifiedTopology: true,
   useNewUrlParser: true
 }).then(() => console.log("DataBase Connected")).catch((err) => {
