@@ -1,50 +1,48 @@
 import { User } from "../models/User.js";
 const { signToken } = require("../utils/auth.js");
 
-const userController = {
-  // get a single user by id or username
-  async getSingleUser({ user = null, params }, res) {
-    const foundUser = await User.findOne({
-      $or: [{ _id: user ? user._id : params.id }, { username: params.username }],
-    })
-      .select("-__v")
-      .populate("cardio")
-      .populate("resistance")
+// get a single user by id or username
+export const getSingleUser = async ({ user = null, params }, res) => {
+  const foundUser = await User.findOne({
+    $or: [{ _id: user ? user._id : params.id }, { username: params.username }],
+  })
+    .select("-__v")
+    .populate("cardio")
+    .populate("resistance")
 
-    if (!foundUser) {
-      return res.status(400).json({ message: 'Cannot find a user with this id!' });
-    }
+  if (!foundUser) {
+    return res.status(400).json({ message: 'Cannot find a user with this id!' });
+  }
 
-    res.json(foundUser);
-  },
+  res.json(foundUser);
+}
 
-  // create a user, sign a token, and send it back to sign up page
-  async createUser({ body }, res) {
-    const user = await User.create(body);
+// create a user, sign a token, and send it back to sign up page
+export const createUser = async ({ body }, res) => {
+  const user = await User.create(body);
 
-    if (!user) {
-      return res.status(400).json({ message: "Something is wrong!" });
-    }
-    const token = signToken(user);
-    res.json({ token, user });
-  },
+  if (!user) {
+    return res.status(400).json({ message: "Something is wrong!" });
+  }
+  const token = signToken(user);
+  res.json({ token, user });
+}
 
-  // login a user, sign a token, and send it back to login page
-  async login({ body }, res) {
-    const user = await User.findOne({
-      $or: [{ username: body.username }, { email: body.email }],
-    });
-    if (!user) {
-      return res.status(400).json({ message: "Can't find this user" });
-    }
+// login a user, sign a token, and send it back to login page
+export const login = async ({ body }, res) => {
+  const user = await User.findOne({
+    $or: [{ username: body.username }, { email: body.email }],
+  });
+  if (!user) {
+    return res.status(400).json({ message: "Can't find this user" });
+  }
 
-    const correctPw = await user.isCorrectPassword(body.password);
+  const correctPw = await user.isCorrectPassword(body.password);
 
-    if (!correctPw) {
-      return res.status(400).json({ message: "Wrong password!" });
-    }
-    const token = signToken(user);
-    res.json({ token, user });
-  },
-};
-export default userController
+  if (!correctPw) {
+    return res.status(400).json({ message: "Wrong password!" });
+  }
+  const token = signToken(user);
+  res.json({ token, user });
+}
+
