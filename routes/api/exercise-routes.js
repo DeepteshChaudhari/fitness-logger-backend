@@ -3,20 +3,20 @@ import express from "express";
 const exerciseRoutes = express.Router()
 
 
-const {
+import {
   createResistance,
   getResistanceById,
   deleteResistance,
-} = require("../../controllers/resistance-controller.js");
+} from "../../controllers/resistance-controller.js";
 
-const {
+import {
   createCardio,
   getCardioById,
   deleteCardio,
-} = require("../../controllers/cardio-controller.js");
+} from "../../controllers/cardio-controller.js";
 
 // import middleware
-const { authMiddleware } = require('../../utils/auth.js');
+import { authMiddleware } from '../../utils/auth.js';
 
 // on insominia: 
 // choose Auth bearer, add response-body attribute and edit tag
