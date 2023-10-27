@@ -1,5 +1,5 @@
-import { Resistance } from "./Resistance";
-import { Cardio } from "./Cardio";
-import { User } from "./User";
+import { Resistance } from "./Resistance.js";
+import { Cardio } from "./Cardio.js";
+import { User } from "./User.js";
 
 export default { Resistance, User, Cardio }
