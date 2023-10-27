@@ -22,18 +22,18 @@ import authMiddleware from '../../utils/auth.js';
 // choose Auth bearer, add response-body attribute and edit tag
 // change request to the login api
 // change filter to $. to find token
-router.use(authMiddleware);
+exerciseRoutes.use(authMiddleware);
 
 // /api/exercise/cardio
-router.route("/cardio").post(createCardio);
+exerciseRoutes.route("/cardio").post(createCardio);
 
 // /api/exercise/cardio/:id
-router.route("/cardio/:id").get(getCardioById).delete(deleteCardio);
+exerciseRoutes.route("/cardio/:id").get(getCardioById).delete(deleteCardio);
 
 // /api/exercise/resistance
-router.route("/resistance").post(createResistance);
+exerciseRoutes.route("/resistance").post(createResistance);
 
 // /api/exercise/resistance/:id
-router.route("/resistance/:id").get(getResistanceById).delete(deleteResistance);
+exerciseRoutes.route("/resistance/:id").get(getResistanceById).delete(deleteResistance);
 
 export default exerciseRoutes;
