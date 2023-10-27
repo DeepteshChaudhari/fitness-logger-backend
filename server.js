@@ -18,7 +18,7 @@ if (process.env.NODE_ENV === "production") {
 // });
 
 app.use(routes);
-
+mongoose.set('strictQuery', true);
 mongoose.connect(mongoDBURL)
   .then(() => {
     console.log('app connected to database')
