@@ -1,6 +1,6 @@
-const { Resistance, User } = require("../models");
+import { Resistance, User } from "../models/index.js";
 
-module.exports = {
+const resistanceController = {
   // create Resistance
   createResistance({ body }, res) {
     Resistance.create(body)
@@ -56,3 +56,4 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
 };
+export default resistanceController

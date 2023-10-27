@@ -1,4 +1,8 @@
-const router = require("express").Router();
+import express from "express";
+
+const exerciseRoutes = express.Router()
+
+
 const {
   createResistance,
   getResistanceById,
@@ -32,4 +36,4 @@ router.route("/resistance").post(createResistance);
 // /api/exercise/resistance/:id
 router.route("/resistance/:id").get(getResistanceById).delete(deleteResistance);
 
-module.exports = router;
+export default exerciseRoutes;

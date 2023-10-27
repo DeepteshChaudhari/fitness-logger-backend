@@ -1,5 +1,5 @@
-const User = require("./User");
-const Resistance = require("./Resistance");
-const Cardio = require("./Cardio");
+import { Resistance } from "./Resistance";
+import { Cardio } from "./Cardio";
+import { User } from "./User";
 
-module.exports = { User, Resistance, Cardio };
+export default { Resistance, User, Cardio }

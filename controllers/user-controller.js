@@ -1,7 +1,7 @@
-const { User } = require("../models");
+import { User } from "../models/User.js";
 const { signToken } = require("../utils/auth");
 
-module.exports = {
+const userController = {
   // get a single user by id or username
   async getSingleUser({ user = null, params }, res) {
     const foundUser = await User.findOne({
@@ -47,3 +47,4 @@ module.exports = {
     res.json({ token, user });
   },
 };
+export default userController

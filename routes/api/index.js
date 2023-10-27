@@ -1,8 +1,11 @@
-const router = require("express").Router();
-const userRoutes = require("./user-routes");
-const exerciseRoutes = require("./exercise-routes");
+import express from "express";
+
+const apiRoutes = express.Router()
+
+import exerciseRoutes from "./exercise-routes";
+import userRoutes from "./user-routes";
 
 router.use("/user", userRoutes);
 router.use("/exercise", exerciseRoutes);
 
-module.exports = router;
+export default apiRoutes;

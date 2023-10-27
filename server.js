@@ -1,6 +1,5 @@
 import express from 'express';
 import path from 'path';
-const routes = require("./routes");
 import routes from './routes/index.js'
 import mongoose from "mongoose";
 import { PORT, mongoDBURL } from "./config/connection";

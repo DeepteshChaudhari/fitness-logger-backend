@@ -1,6 +1,6 @@
-const { Cardio, User } = require("../models");
+import { Cardio, User } from '../models/index.js'
 
-module.exports = {
+const cardioController = {
   // create cardio
   createCardio({ body }, res) {
     Cardio.create(body)
@@ -55,3 +55,4 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
 };
+export default cardioController;
