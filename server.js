@@ -2,8 +2,8 @@ import express from 'express';
 import path from 'path';
 import routes from './routes/index.js'
 import mongoose from "mongoose";
-const PORT = process.env.PORT
-const mongoDBURL = process.env.mongoDBURL
+const PORT = process.env.PORT || 3001
+const mongoDBURL = process.env.mongoDBURL || 'mongodb://localhost:27017'
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
