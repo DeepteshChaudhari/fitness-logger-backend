@@ -1,6 +1,6 @@
 const { createUser, login, getSingleUser } = require("../../controllers/user-controller.js");
 import express from "express";
-const userRoutes = express.Router()
+const router = express.Router()
 
 // import middleware
 import authMiddleware from "../../utils/auth.js";
@@ -15,4 +15,4 @@ router.route("/login").post(login);
 // /api/user/me to get single user data
 router.route('/me').get(authMiddleware, getSingleUser);
 
-export default userRoutes;
+export default router;

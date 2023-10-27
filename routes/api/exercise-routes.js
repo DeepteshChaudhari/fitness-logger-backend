@@ -1,8 +1,5 @@
-import express from "express";
-
-const exerciseRoutes = express.Router()
-
-
+import express from 'express'
+const router = express.Router()
 import {
   createResistance,
   getResistanceById,
@@ -16,24 +13,24 @@ import {
 } from "../../controllers/cardio-controller.js";
 
 // import middleware
-import authMiddleware from '../../utils/auth.js';
+const { authMiddleware } = require('../../utils/auth');
 
 // on insominia: 
 // choose Auth bearer, add response-body attribute and edit tag
 // change request to the login api
 // change filter to $. to find token
-exerciseRoutes.use(authMiddleware);
+router.use(authMiddleware);
 
 // /api/exercise/cardio
-exerciseRoutes.route("/cardio").post(createCardio);
+router.route("/cardio").post(createCardio);
 
 // /api/exercise/cardio/:id
-exerciseRoutes.route("/cardio/:id").get(getCardioById).delete(deleteCardio);
+router.route("/cardio/:id").get(getCardioById).delete(deleteCardio);
 
 // /api/exercise/resistance
-exerciseRoutes.route("/resistance").post(createResistance);
+router.route("/resistance").post(createResistance);
 
 // /api/exercise/resistance/:id
-exerciseRoutes.route("/resistance/:id").get(getResistanceById).delete(deleteResistance);
+router.route("/resistance/:id").get(getResistanceById).delete(deleteResistance);
 
-export default exerciseRoutes;
+export default router
