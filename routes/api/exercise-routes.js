@@ -22,7 +22,7 @@ import auth from '../../utils/auth.js';
 // choose Auth bearer, add response-body attribute and edit tag
 // change request to the login api
 // change filter to $. to find token
-exerciseRoutes.use(auth);
+Router.use(auth);
 
 // /api/exercise/cardio
 router.route("/cardio").post(createCardio);
