@@ -33,4 +33,4 @@ router.route("/resistance").post(createResistance);
 // /api/exercise/resistance/:id
 router.route("/resistance/:id").get(getResistanceById).delete(deleteResistance);
 
-export default router
+module.exports = router
