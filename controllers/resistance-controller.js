@@ -1,4 +1,5 @@
-import { Resistance, User } from "../models/index.js";
+import { Resistance } from "../models/Resistance.js";
+import { User } from "../models/User.js";
 
 const resistanceController = {
   // create Resistance
