@@ -3,7 +3,7 @@ import express from "express";
 const userRoutes = express.Router()
 
 // import middleware
-import auth from "../../utils/auth.js";
+import authMiddleware from "../../utils/auth.js";
 
 // put authMiddleware anywhere we need to send a token for verification of user
 // /api/user for user signup
@@ -13,6 +13,6 @@ router.route("/").post(createUser)
 router.route("/login").post(login);
 
 // /api/user/me to get single user data
-router.route('/me').get(auth, getSingleUser);
+router.route('/me').get(authMiddleware, getSingleUser);
 
 export default userRoutes;

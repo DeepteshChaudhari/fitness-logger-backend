@@ -16,13 +16,13 @@ import {
 } from "../../controllers/cardio-controller.js";
 
 // import middleware
-import auth from '../../utils/auth.js';
+import authMiddleware from '../../utils/auth.js';
 
 // on insominia: 
 // choose Auth bearer, add response-body attribute and edit tag
 // change request to the login api
 // change filter to $. to find token
-Router.use(auth);
+router.use(authMiddleware);
 
 // /api/exercise/cardio
 router.route("/cardio").post(createCardio);
