@@ -13,7 +13,7 @@ import {
 } from "../../controllers/cardio-controller.js";
 
 // import middleware
-const { authMiddleware } = require('../../utils/auth');
+import { authMiddleware } from '../../utils/auth';
 
 // on insominia: 
 // choose Auth bearer, add response-body attribute and edit tag
