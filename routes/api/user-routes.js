@@ -1,4 +1,4 @@
-const { createUser, login, getSingleUser } = require("../../controllers/user-controller.js");
+import { createUser, login, getSingleUser } from "../../controllers/user-controller.js";
 import express from "express";
 const userRouter = express.Router()
 
