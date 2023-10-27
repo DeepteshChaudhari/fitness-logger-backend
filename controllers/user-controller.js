@@ -1,5 +1,5 @@
 import { User } from "../models/User.js";
-const { signToken } = require("../utils/auth.js");
+import { signToken } from "../utils/auth.js";
 
 // get a single user by id or username
 export const getSingleUser = async ({ user = null, params }, res) => {
