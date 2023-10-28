@@ -1,7 +1,6 @@
 import express from 'express'
 import path from 'path';
 import apiRoutes from './routes/api/index.js';
-const db = require("./config/connection");
 import db from './config/connection.js'
 
 const PORT = process.env.PORT || 3001;
@@ -19,7 +18,7 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
-app.use(routes);
+app.use(apiRoutes);
 
 db.once("open", () => {
   app.listen(PORT, () => {
