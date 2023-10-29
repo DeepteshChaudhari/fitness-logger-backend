@@ -6,7 +6,7 @@ mongoose.connect("mongodb://localhost:27017/", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }, err => {
-  if (err) console.log('error occured in bd connection');
+  if (err) throw err;
   console.log('Connected to MongoDB!')
 }
 
