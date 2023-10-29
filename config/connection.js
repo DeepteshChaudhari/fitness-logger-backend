@@ -2,11 +2,13 @@ const mongoose = require("mongoose");
 
 mongoose.set("strictQuery", false);
 
-mongoose.connect("mongodb://localhost:27017/test",
-  err => {
-    if (err) throw err;
-    console.log('Connected to MongoDB!')
-  }
+mongoose.connect("mongodb://localhost:27017/test", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}, err => {
+  if (err) throw err;
+  console.log('Connected to MongoDB!')
+}
 
 );
 
