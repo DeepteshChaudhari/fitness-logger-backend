@@ -1,10 +1,8 @@
-import express from "express";
+const router = require("express").Router();
+const userRoutes = require("./user-routes");
+const exerciseRoutes = require("./exercise-routes");
 
-const apiRoutes = express.Router()
-import router from "../api/exercise-routes.js";
-import userRouter from "../api/user-routes.js";
+router.use("/user", userRoutes);
+router.use("/exercise", exerciseRoutes);
 
-router.use("/user", userRouter);
-router.use("/exercise", router);
-
-export default apiRoutes;
+module.exports = router;

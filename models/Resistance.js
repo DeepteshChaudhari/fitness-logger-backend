@@ -1,5 +1,6 @@
-import mongoose from 'mongoose';
-const resistanceSchema = new mongoose.Schema(
+const { Schema, model } = require("mongoose");
+
+const ResistanceSchema = new Schema(
   {
     type: {
       type: String,
@@ -28,11 +29,13 @@ const resistanceSchema = new mongoose.Schema(
       required: true,
     },
     userId: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: 'User',
       required: true,
     },
   }
 );
 
-export const Resistance = mongoose.model('Resistance', resistanceSchema);
+const Resistance = model("Resistance", ResistanceSchema);
+
+module.exports = Resistance;

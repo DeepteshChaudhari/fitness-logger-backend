@@ -1,5 +1,6 @@
-import mongoose from "mongoose";
-const CardioSchema = new mongoose.Schema(
+const { Schema, model } = require("mongoose");
+
+const CardioSchema = new Schema(
   {
     type: {
       type: String,
@@ -24,12 +25,13 @@ const CardioSchema = new mongoose.Schema(
       required: true,
     },
     userId: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: 'User',
       required: true,
     },
   }
 );
 
-export const Cardio = mongoose.model('Cardio', CardioSchema);
+const Cardio = model("Cardio", CardioSchema);
 
+module.exports = Cardio;

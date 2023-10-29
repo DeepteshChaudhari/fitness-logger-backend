@@ -1,18 +1,18 @@
-import { createUser, login, getSingleUser } from "../../controllers/user-controller.js";
-import express from "express";
-const userRouter = express.Router()
+const router = require("express").Router();
+const { createUser, login, getSingleUser } = require("../../controllers/user-controller");
 
 // import middleware
-import authMiddleware from "../../utils/auth.js";
+const { authMiddleware } = require("../../utils/auth");
 
 // put authMiddleware anywhere we need to send a token for verification of user
 // /api/user for user signup
-userRouter.route("/").post(createUser)
+router.route("/").post(createUser)
 
 // /api/user/login for user login
-userRouter.route("/login").post(login);
+router.route("/login").post(login);
 
 // /api/user/me to get single user data
-userRouter.route('/me').get(authMiddleware, getSingleUser);
+router.route('/me').get(authMiddleware, getSingleUser);
 
-export default userRouter;
+
+module.exports = router;

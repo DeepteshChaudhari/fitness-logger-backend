@@ -1,6 +1,7 @@
-import bcrypt from 'bcrypt'
-import mongoose from "mongoose";
-const userSchema = new mongoose.Schema({
+const { Schema, model } = require("mongoose");
+const bcrypt = require("bcrypt");
+
+const UserSchema = new Schema({
   username: {
     type: String,
     trim: true,
@@ -19,17 +20,17 @@ const userSchema = new mongoose.Schema({
     match: [/.+@.+\..+/],
   },
   cardio: [{
-    type: mongoose.Schema.Types.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: "Cardio"
   }],
   resistance: [{
-    type: mongoose.Schema.Types.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: "Resistance"
   }]
 });
 
 // hash user password
-userSchema.pre("save", async function(next) {
+UserSchema.pre("save", async function (next) {
   if (this.isNew || this.isModified("password")) {
     const saltRounds = 10;
     this.password = await bcrypt.hash(this.password, saltRounds);
@@ -39,8 +40,10 @@ userSchema.pre("save", async function(next) {
 });
 
 // custom method to compare and validate password for logging in
-userSchema.methods.isCorrectPassword = async function(password) {
+UserSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
-export const User = mongoose.model('User', userSchema);
+const User = model("User", UserSchema);
+
+module.exports = User;

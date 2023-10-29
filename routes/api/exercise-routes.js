@@ -1,19 +1,18 @@
-import express from 'express'
-const router = express.Router()
-import {
+const router = require("express").Router();
+const {
   createResistance,
   getResistanceById,
   deleteResistance,
-} from "../../controllers/resistance-controller.js";
+} = require("../../controllers/resistance-controller");
 
-import {
+const {
   createCardio,
   getCardioById,
   deleteCardio,
-} from "../../controllers/cardio-controller.js";
+} = require("../../controllers/cardio-controller");
 
 // import middleware
-import authMiddleware from '../../utils/auth.js';
+const { authMiddleware } = require('../../utils/auth');
 
 // on insominia: 
 // choose Auth bearer, add response-body attribute and edit tag
@@ -33,4 +32,4 @@ router.route("/resistance").post(createResistance);
 // /api/exercise/resistance/:id
 router.route("/resistance/:id").get(getResistanceById).delete(deleteResistance);
 
-export default router;
+module.exports = router;
