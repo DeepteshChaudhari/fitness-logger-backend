@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 
-
-const db = mongoose.connect("mongodb://localhost:27017", {
+mongoose.connect("mongodb://localhost:27017", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }, err => {
@@ -10,5 +9,6 @@ const db = mongoose.connect("mongodb://localhost:27017", {
 }
 
 );
+const db = mongoose.connect
 
 export default db
