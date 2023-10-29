@@ -1,6 +1,8 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://localhost:27017", {
+mongoose.set("strictQuery", false);
+
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }, err => {
@@ -9,6 +11,5 @@ mongoose.connect("mongodb://localhost:27017", {
 }
 
 );
-const db = mongoose.connect
 
-export default db
+module.exports = mongoose.connection;
