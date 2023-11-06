@@ -6,7 +6,8 @@
   "homepage": "https://fitnesslogger.netlify.app",
   "scripts": {
     "start": "node server.js",
-    "watch": "nodemon server.js"
+    "watch": "nodemon server.js",
+    "build": "node ./buildScript"
   },
   "keywords": [],
   "author": "",
