@@ -9,7 +9,6 @@ mongoose.connect(process.env.REACT_APP_MONGODB_URI || "mongodb+srv://diptesh1510
   if (err) throw err;
   console.log('Connected to MongoDB!')
 }
-
 );
 
 module.exports = mongoose.connection;
