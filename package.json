@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "homepage": "https://fitnesslogger.netlify.app",
   "scripts": {
     "start": "node server.js",
     "watch": "nodemon server.js",
