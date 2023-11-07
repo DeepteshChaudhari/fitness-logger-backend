@@ -7,7 +7,7 @@ router.use("/api", apiRoutes);
 // connect with react router
 // serve up react front-end in production
 router.use((req, res) => {
-  res.sendFile(path.join(__dirname, "../../fitness-logger-frontend/build"));
+  res.sendFile(path.join(__dirname, "/build"));
 });
 
 module.exports = router;
