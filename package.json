@@ -6,7 +6,10 @@
   "homepage": "https://fitnesslogger.netlify.app",
   "scripts": {
     "start": "node server.js",
-    "watch": "nodemon server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "clientinstall": "npm install --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "render-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build -- prefix client"
   },
   "keywords": [],
