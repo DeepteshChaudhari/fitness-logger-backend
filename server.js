@@ -11,7 +11,7 @@ app.use(express.json());
 
 // Serve up static assets
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "https://fitnesslogger.netlify.app/")));
+  app.use(express.static(path.join(__dirname, "../client/build")));
 }
 
 // app.get('*', (req, res) => {
