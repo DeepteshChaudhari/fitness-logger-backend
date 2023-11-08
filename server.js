@@ -11,7 +11,7 @@ app.use(express.json());
 
 // Serve up static assets
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../client/build")));
+  app.use(express.static(path.join(__dirname, "https://fitnesslogger.netlify.app/")));
 }
 
 // app.get('*', (req, res) => {
@@ -20,10 +20,8 @@ if (process.env.NODE_ENV === "production") {
 
 app.use(routes);
 
-app.get("/", (req, res) => {
-  res.status(200).send("API is running");
-});
-
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+db.once("open", () => {
+  app.listen(PORT, () => {
+    console.log(`API server running on port ${PORT}!`);
+  });
 });
