@@ -1,13 +1,13 @@
 const router = require("express").Router();
 const path = require("path");
-const apiRoutes = require("./api");
+const apiRoutes = require("./api/index");
 
 router.use("/api", apiRoutes);
 
 // connect with react router
 // serve up react front-end in production
 router.use((req, res) => {
-  res.sendFile(path.join(__dirname, "https://fitnesslogger.netlify.app"));
+  res.sendFile(path.join(__dirname, "../../build/index.html"));
 });
 
 module.exports = router;
