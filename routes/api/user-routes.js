@@ -14,5 +14,4 @@ router.route("/login").post(login);
 // /api/user/me to get single user data
 router.route('/me').get(authMiddleware, getSingleUser);
 
-
 module.exports = router;
