@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-require('dotenv').config()
 mongoose.set("strictQuery", false);
 
 mongoose.connect(process.env.REACT_APP_MONGODB_URI || "mongodb+srv://diptesh151097:Mahadev123@cluster0.dgyjmsj.mongodb.net/", {
