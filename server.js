@@ -2,10 +2,16 @@ const express = require("express");
 const path = require("path");
 const routes = require("./routes");
 const db = require("./config/connection");
-
+const cors = require("cors");
 const PORT = process.env.PORT || 3001;
 const app = express();
 
+const corsOptions = {
+  origin: ["http://localhost:3001", "https://fitnesslogger.netlify.app"],
+  credentials: true,
+  methods: ["GET", "POST", "DELETE", "PUT"],
+};
+app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
